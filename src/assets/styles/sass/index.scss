@@ -1,0 +1,257 @@
+body {
+    background: $background-color;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    height: 100vh;
+
+    main {
+        height: 85vh;
+        max-width: 80%;
+        margin: 0 auto;
+        padding-top: 30px;
+
+        .score {
+            border: 1px solid $white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            padding: 15px;
+            width: 50%;
+
+            div:nth-child(1) {
+                h1 {
+                    color: $white;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    font-size: 36px;
+
+                    span {
+                        display: block;
+                    }
+                }
+            }
+
+            div:nth-child(2) {
+                background: $white;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 25%;
+
+                h2 {
+                    color: $scoreText;
+                    text-transform: uppercase;
+                    letter-spacing: 5px;
+                }
+
+                p {
+                    color: $scoreText;
+                    font-size: 50px;
+                }
+            }
+        }
+
+        .card {
+            background: url('/src/assets/images/bg-triangle.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 45%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: 0 auto;
+            padding-top: 40px;
+            width: 50%;
+
+            .card__border {
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                height: 180px;
+                justify-content: center;
+                width: 180px;
+                transition: all 0.5s ease;
+
+                div {
+                    align-items: center;
+                    align-self: center;
+                    background: $white;
+                    border-radius: 50%;
+                    box-shadow: inset -1px 5px 18px 0px $black;
+                    display: flex;
+                    height: 130px;
+                    justify-content: center;
+                    margin: 0 15px;
+                    width: 130px;
+                }
+            }
+
+            .card__border:hover {
+                transform: scale(1.1);
+                transition: all 0.5s ease;
+            }
+
+            .blue {
+                background: $paper;
+            }
+            
+            .yellow {
+                background: $scissor;
+            }
+
+            .red {
+                background: $rock;
+            }
+        }
+
+        // .options {
+        //     display: none;
+        // }
+
+        .choice {
+            background: unset;
+            display: none;
+            justify-content: space-between;
+
+            .card__choice {
+                text-align: center;
+
+                & p {
+                    color: $white;
+                    font-size: 20px;
+                    letter-spacing: 3px;
+                    padding-bottom: 50px;
+                    text-transform: uppercase;
+                }
+
+                .card__border {
+                    transition: none;
+                    
+                }
+
+                .card__border:hover {
+                    transform: none;
+                    transition: none;
+                }
+            }
+
+            .check {
+                align-items: center;
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+
+                h2 {
+                    color: $white;
+                    font-size: 40px;
+                    font-weight: bold;
+                    letter-spacing: 5px;
+                    padding-bottom: 20px;
+                    text-transform: uppercase;
+                }
+
+                // setar width da section para 85%
+
+                button {
+                    border: none;
+                    border-radius: 5px;
+                    color: hsl(349, 71%, 52%);
+                    font-size: 14px;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                    padding: 15px 55px;
+                    text-transform: uppercase;
+                }
+            }
+
+            .computer {
+                .card__border {
+                    display: none;
+                }
+
+                .computer__wait {
+                    background-color: #0003;
+                    border-radius: 50%;
+                    height: 150px;
+                    width: 150px;
+                    margin: 0 auto;
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+    footer {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 auto;
+        max-width: 95%;
+
+        div {
+            .btn {
+                background: transparent;
+                border: 1px solid $white;
+                border-radius: 5px;
+                color: $white;
+                font-size: 12px;
+                font-weight: bold;
+                letter-spacing: 2px;
+                padding: 8px 20px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .modal {
+        align-items: center;
+        animation: modal .3s;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: none;
+        height: 100vh;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        top: 0;
+        z-index: 2000;
+        width: 100vw;
+
+        &__container {
+            background: $white;
+            border-radius: 10px;
+            padding: 30px;
+
+            div:nth-child(1) {
+                align-items: baseline;
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 50px;
+
+                h1 {
+                    color: $scoreText;
+                    font-size: 30px;
+                    text-transform: uppercase;
+                }
+
+                img {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .modal.mostrar {
+        display: flex;
+        animation: modal .3s;
+    }
+
+    @keyframes modal {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}

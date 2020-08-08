@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/assets/styles/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <title>Rock Paper Sisor Game</title>
+</head>
+<body>
+    
+    <main>
+        <section class="score">
+            <div>
+                <h1>Rock <span>paper</span> <span>scissors</span></h1>
+            </div>
+            <div>
+                <h2>Score</h2>
+                <p id="score">0</p>
+            </div>
+        </section>
+
+        <section class="card options">
+            <div class="card__border blue" data-choice='paper'>
+                <div>
+                    <img src="/src/assets/images/icon-paper.svg">
+                </div>
+            </div>
+            <div class="card__border yellow" data-choice='scissor'>
+                <div>
+                    <img src="/src/assets/images/icon-scissors.svg">
+                </div>
+            </div>
+            <div class="card__border red" data-choice='rock'>
+                <div>
+                    <img src="/src/assets/images/icon-rock.svg">
+                </div>
+            </div>
+        </section>
+
+        <section class="card choice">
+            <div class="card__choice user">
+                <p>You picked</p>
+                <div class="card__border"></div>
+            </div>
+            <div class="card__choice check">
+                <h2></h2>
+                <button>Play Again</button>
+            </div>
+            <div class="card__choice computer">
+                <p>The house picked</p>
+                <div class="card__border"></div>
+                <div class="computer__wait"></div>
+            </div>
+        </section>
+    </main>
+
+    <section class="modal">
+        <div class="modal__container">
+            <div>
+                <h1>Rules</h1>
+                <img src="/src/assets/images/icon-close.svg" class="modal__close">
+            </div>
+            <div>
+                <img src="/src/assets/images/image-rules.svg">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div>   
+            <button class="btn">Rules</button>
+        </div>
+    </footer>
+
+<script src="/src/source/index.js"></script>
+</body>
+</html>
