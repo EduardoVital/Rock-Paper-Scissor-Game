@@ -93,22 +93,18 @@ body {
                 transition: all 0.5s ease;
             }
 
-            .blue {
+            .paper {
                 background: $paper;
             }
             
-            .yellow {
+            .scissor {
                 background: $scissor;
             }
 
-            .red {
+            .rock {
                 background: $rock;
             }
         }
-
-        // .options {
-        //     display: none;
-        // }
 
         .choice {
             background: unset;
@@ -128,7 +124,6 @@ body {
 
                 .card__border {
                     transition: none;
-                    
                 }
 
                 .card__border:hover {
@@ -151,8 +146,6 @@ body {
                     padding-bottom: 20px;
                     text-transform: uppercase;
                 }
-
-                // setar width da section para 85%
 
                 button {
                     border: none;
