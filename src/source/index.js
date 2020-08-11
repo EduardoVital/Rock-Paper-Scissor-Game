@@ -1,13 +1,4 @@
-const userChoiceBtn = document.querySelectorAll('.options .card__border')
-const score = document.getElementById('score')
-const modalBtn = document.querySelector('.btn')
-const userChoiceSection = document.querySelector('.options')
-const choosenCardsSection = document.querySelector('.choice')
-const choosenCards = document.querySelector('.choice .card__border')
-const waitComputerChoice = document.querySelector('.computer__wait')
-const cardComputerChoice = document.querySelector('.computer .card__border')
-const checkResult = document.querySelector('.check')
-const playAgainBtn = document.querySelector('.check button')
+import * as Const from './constants.js'
 
 const pcChoice = ['rock', 'paper', 'scissor']
 let userChoice = undefined
@@ -27,22 +18,22 @@ const updateScore = (value) => {
 const resultWin = () => {
   const tittleResult = document.querySelector('.check h2')
   tittleResult.innerHTML = 'You Win'
-  choosenCardsSection.style.width = '65%'
-  checkResult.style.display = 'flex'
+  Const.choosenCardsSection.style.width = '65%'
+  Const.checkResult.style.display = 'flex'
 }
 
 const resultDraw = () => {
   const tittleResult = document.querySelector('.check h2')
   tittleResult.innerHTML = 'Game Draw'
-  choosenCardsSection.style.width = '65%'
-  checkResult.style.display = 'flex'
+  Const.choosenCardsSection.style.width = '65%'
+  Const.checkResult.style.display = 'flex'
 }
 
 const resultLose = () => {
   const tittleResult = document.querySelector('.check h2')
   tittleResult.innerHTML = 'You Lose'
-  choosenCardsSection.style.width = '65%'
-  checkResult.style.display = 'flex'
+  Const.choosenCardsSection.style.width = '65%'
+  Const.checkResult.style.display = 'flex'
 }
 
 const checkWinner = () => {
@@ -84,35 +75,35 @@ const modalEvents = (element) => {
 }
 
 const youChoice = () => { 
-  userChoiceSection.style.display = 'none'
-  choosenCardsSection.style.display = 'flex'
+  Const.userChoiceSection.style.display = 'none'
+  Const.choosenCardsSection.style.display = 'flex'
 
-  choosenCards.classList.remove('paper')
-  choosenCards.classList.remove('rock')
-  choosenCards.classList.remove('scissor')
+  Const.choosenCards.classList.remove('paper')
+  Const.choosenCards.classList.remove('rock')
+  Const.choosenCards.classList.remove('scissor')
 
-  choosenCards.classList.add(`${userChoice}`)
-  const img = choosenCards.querySelector('img')
+  Const.choosenCards.classList.add(`${userChoice}`)
+  const img = Const.choosenCards.querySelector('img')
   img.src = `/src/assets/images/icon-${userChoice}.svg`
   img.alt = userChoice
 }
 
 const houseChoice = () => {
-  waitComputerChoice.style.display = 'none'
-  cardComputerChoice.style.display = 'flex'
+  Const.waitComputerChoice.style.display = 'none'
+  Const.cardComputerChoice.style.display = 'flex'
 
-  cardComputerChoice.classList.remove('paper')
-  cardComputerChoice.classList.remove('rock')
-  cardComputerChoice.classList.remove('scissor')
+  Const.cardComputerChoice.classList.remove('paper')
+  Const.cardComputerChoice.classList.remove('rock')
+  Const.cardComputerChoice.classList.remove('scissor')
 
-  cardComputerChoice.classList.add(`${computerChoice}`)
-  const img = cardComputerChoice.querySelector('img')
+  Const.cardComputerChoice.classList.add(`${computerChoice}`)
+  const img = Const.cardComputerChoice.querySelector('img')
   img.src = `/src/assets/images/icon-${computerChoice}.svg`
   img.alt = computerChoice
 }
 
 const click = () => {
-  userChoiceBtn.forEach((item) => {
+  Const.userChoiceBtn.forEach((item) => {
     item.addEventListener('click', () => {
       userChoice = item.getAttribute('data-choice')
       youChoice()
@@ -125,18 +116,18 @@ const click = () => {
 }
 
 const playAgain = () => {
-    playAgainBtn.addEventListener('click', () => {
-        choosenCardsSection.style.display = 'none'
-        choosenCardsSection.style.width = '50%'
-        checkResult.style.display = 'none'
-        waitComputerChoice.style.display = 'flex'
-        cardComputerChoice.style.display = 'none'
-        userChoiceSection.style.display = 'flex'
+  Const.playAgainBtn.addEventListener('click', () => {
+    Const.choosenCardsSection.style.display = 'none'
+    Const.choosenCardsSection.style.width = '50%'
+    Const.checkResult.style.display = 'none'
+    Const.waitComputerChoice.style.display = 'flex'
+    Const.cardComputerChoice.style.display = 'none'
+    Const.userChoiceSection.style.display = 'flex'
     })
 }
 
 const showModal = () => {
-  modalBtn.addEventListener('click', () => modalEvents('.modal'))
+  Const.modalBtn.addEventListener('click', () => modalEvents('.modal'))
 }
 
 click()
