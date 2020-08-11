@@ -1,13 +1,13 @@
-const cardBtn = document.querySelectorAll('.options .card__border')
+const userChoiceBtn = document.querySelectorAll('.options .card__border')
 const score = document.getElementById('score')
-const button = document.querySelector('.btn')
-const options = document.querySelector('.options')
-const choice = document.querySelector('.choice')
-const cardChoice = document.querySelector('.choice .card__border')
-const wait = document.querySelector('.computer__wait')
+const modalBtn = document.querySelector('.btn')
+const userChoiceSection = document.querySelector('.options')
+const choosenCardsSection = document.querySelector('.choice')
+const choosenCards = document.querySelector('.choice .card__border')
+const waitComputerChoice = document.querySelector('.computer__wait')
 const cardComputerChoice = document.querySelector('.computer .card__border')
-const WinOrLose = document.querySelector('.check')
-const playAgain = document.querySelector('.check button')
+const checkResult = document.querySelector('.check')
+const playAgainBtn = document.querySelector('.check button')
 
 const pcChoice = ['rock', 'paper', 'scissor']
 let userChoice = undefined
@@ -27,22 +27,22 @@ const updateScore = (value) => {
 const resultWin = () => {
   const tittleResult = document.querySelector('.check h2')
   tittleResult.innerHTML = 'You Win'
-  choice.style.width = '65%'
-  WinOrLose.style.display = 'flex'
+  choosenCardsSection.style.width = '65%'
+  checkResult.style.display = 'flex'
 }
 
 const resultDraw = () => {
   const tittleResult = document.querySelector('.check h2')
   tittleResult.innerHTML = 'Game Draw'
-  choice.style.width = '65%'
-  WinOrLose.style.display = 'flex'
+  choosenCardsSection.style.width = '65%'
+  checkResult.style.display = 'flex'
 }
 
 const resultLose = () => {
   const tittleResult = document.querySelector('.check h2')
   tittleResult.innerHTML = 'You Lose'
-  choice.style.width = '65%'
-  WinOrLose.style.display = 'flex'
+  choosenCardsSection.style.width = '65%'
+  checkResult.style.display = 'flex'
 }
 
 const checkWinner = () => {
@@ -84,21 +84,21 @@ const modalEvents = (element) => {
 }
 
 const youChoice = () => { 
-  options.style.display = 'none'
-  choice.style.display = 'flex'
+  userChoiceSection.style.display = 'none'
+  choosenCardsSection.style.display = 'flex'
 
-  cardChoice.classList.remove('paper')
-  cardChoice.classList.remove('rock')
-  cardChoice.classList.remove('scissor')
+  choosenCards.classList.remove('paper')
+  choosenCards.classList.remove('rock')
+  choosenCards.classList.remove('scissor')
 
-  cardChoice.classList.add(`${userChoice}`)
-  const img = cardChoice.querySelector('img')
+  choosenCards.classList.add(`${userChoice}`)
+  const img = choosenCards.querySelector('img')
   img.src = `/src/assets/images/icon-${userChoice}.svg`
   img.alt = userChoice
 }
 
 const houseChoice = () => {
-  wait.style.display = 'none'
+  waitComputerChoice.style.display = 'none'
   cardComputerChoice.style.display = 'flex'
 
   cardComputerChoice.classList.remove('paper')
@@ -112,7 +112,7 @@ const houseChoice = () => {
 }
 
 const click = () => {
-  cardBtn.forEach((item) => {
+  userChoiceBtn.forEach((item) => {
     item.addEventListener('click', () => {
       userChoice = item.getAttribute('data-choice')
       youChoice()
@@ -124,21 +124,21 @@ const click = () => {
   })
 }
 
-const play = () => {
-    playAgain.addEventListener('click', () => {
-        choice.style.display = 'none'
-        WinOrLose.style.display = 'none'
-        choice.style.width = '50%'
-        wait.style.display = 'flex'
+const playAgain = () => {
+    playAgainBtn.addEventListener('click', () => {
+        choosenCardsSection.style.display = 'none'
+        choosenCardsSection.style.width = '50%'
+        checkResult.style.display = 'none'
+        waitComputerChoice.style.display = 'flex'
         cardComputerChoice.style.display = 'none'
-        options.style.display = 'flex'
+        userChoiceSection.style.display = 'flex'
     })
 }
 
 const showModal = () => {
-  button.addEventListener('click', () => modalEvents('.modal'))
+  modalBtn.addEventListener('click', () => modalEvents('.modal'))
 }
 
 click()
-play()
+playAgain()
 showModal()

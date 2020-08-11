@@ -160,6 +160,10 @@ body {
             }
 
             .computer {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+
                 .card__border {
                     display: none;
                 }
