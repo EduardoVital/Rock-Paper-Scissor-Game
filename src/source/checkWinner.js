@@ -2,7 +2,21 @@ import { randomChoice } from './choices.js'
 import { resultDraw, resultWin, resultLose } from './results.js'
 import { userChoice } from './click.js'
 
-const pcChoice = ['rock', 'paper', 'scissor']
+let pcChoice = []
+const gameChoices = [ 
+  {
+    choice: 'rock',
+  },
+  {
+    choice: 'paper',
+  },
+  {
+    choice: 'scissor'
+  }
+]
+
+const [ ...items ] = gameChoices
+items.forEach((item) => { pcChoice.push(item.choice) } )
 
 const resultPcChoice = () => {
   return pcChoice[Math.floor(Math.random() * pcChoice.length)]
