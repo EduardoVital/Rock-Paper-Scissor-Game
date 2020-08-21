@@ -1,13 +1,19 @@
-import { userChoiceSection, choosenCardsSection, choosenCards, waitComputerChoice, cardComputerChoice } from './elements.js'
-import { userChoice } from './click.js'
+import { 
+  userChoiceSection, 
+  choosenCardsSection, 
+  choosenCards, 
+  waitComputerChoice, 
+  cardComputerChoice 
+} from './elements.js'
+import { rock, paper, scissor } from './checkWinner.js'
 
-const clickChoice = () => { 
+const clickChoice = (userChoice) => { 
   userChoiceSection.style.display = 'none'
   choosenCardsSection.style.display = 'flex'
 
-  choosenCards.classList.remove('paper')
-  choosenCards.classList.remove('rock')
-  choosenCards.classList.remove('scissor')
+  choosenCards.classList.remove(paper)
+  choosenCards.classList.remove(rock)
+  choosenCards.classList.remove(scissor)
 
   choosenCards.classList.add(`${userChoice}`)
   const img = choosenCards.querySelector('img')
@@ -19,9 +25,9 @@ const randomChoice = (computerChoice) => {
   waitComputerChoice.style.display = 'none'
   cardComputerChoice.style.display = 'flex'
 
-  cardComputerChoice.classList.remove('paper')
-  cardComputerChoice.classList.remove('rock')
-  cardComputerChoice.classList.remove('scissor')
+  cardComputerChoice.classList.remove(paper)
+  cardComputerChoice.classList.remove(rock)
+  cardComputerChoice.classList.remove(scissor)
 
   cardComputerChoice.classList.add(`${computerChoice}`)
   const img = cardComputerChoice.querySelector('img')

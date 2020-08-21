@@ -2,18 +2,16 @@ import { userChoiceBtn } from './elements.js'
 import { clickChoice } from './choices.js'
 import { checkWinner } from './checkWinner.js'
 
-let userChoice = undefined
-
-const click = () => {
+const click = (userChoice) => {
   userChoiceBtn.forEach((item) => {
     item.addEventListener('click', () => {
       userChoice = item.getAttribute('data-choice')
-      clickChoice()
+      clickChoice(userChoice)
       setTimeout(() => {
-        checkWinner()
+        checkWinner(userChoice)
       }, 1000)
     })
   })
 }
 
-export { click, userChoice }
+export { click }
