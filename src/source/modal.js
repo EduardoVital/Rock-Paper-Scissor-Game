@@ -8,7 +8,8 @@ const modalEvents = (element) => {
   modal.addEventListener('click', (e) => {
     if (
       e.target.className === 'modal__close' ||
-      e.target.className === `modal ${modalClass}`
+      e.target.className === `modal ${modalClass}` || 
+      e.target.className === 'modal__close mobile'
     ) {
       modal.classList.remove(modalClass)
     }
