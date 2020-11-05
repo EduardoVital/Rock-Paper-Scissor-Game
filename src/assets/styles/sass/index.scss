@@ -114,6 +114,10 @@ body {
                     margin: 0 15px;
                     width: 130px;
                 }
+
+                @media (max-width: $mobile) {
+                    margin-bottom: 25px;
+                }
             }
 
             .card__border:hover {
@@ -165,6 +169,11 @@ body {
                     letter-spacing: 3px;
                     padding-bottom: 50px;
                     text-transform: uppercase;
+                    
+                    @media (max-width: $mobile) {
+                        font-size: 16px;
+                        letter-spacing: 1px;
+                    }
                 }
 
                 .card__border {
@@ -174,6 +183,12 @@ body {
                 .card__border:hover {
                     transform: none;
                     transition: none;
+                }
+
+                @media (max-width: $mobile) {
+                    display: flex;
+                    flex-direction: column;
+                    flex-flow: column-reverse;
                 }
             }
 
@@ -202,12 +217,21 @@ body {
                     padding: 15px 55px;
                     text-transform: uppercase;
                 }
+
+                @media (max-width: $mobile) {
+                    order: 3;
+                    flex-grow: 3;
+                }
             }
 
             .computer {
                 align-items: center;
                 display: flex;
                 flex-direction: column;
+                
+                @media (max-width: $mobile) {
+                    flex-flow: column-reverse;
+                }
 
                 .card__border {
                     display: none;
@@ -220,7 +244,18 @@ body {
                     width: 150px;
                     margin: 0 auto;
                     margin-top: 15px;
+                    display: none;
+
+                    @media (max-width: $mobile) {
+                        height: 110px;
+                        width: 110px;
+                        margin-bottom: 25px;
+                    }
                 }
+            }
+
+            @media (max-width: $mobile){
+                width: 100% !important;
             }
         }
     }
